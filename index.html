@@ -1,0 +1,74 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Perfume Check
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-100 font-roboto">
+  <div class="container mx-auto p-4">
+   <header class="text-center mb-8">
+    <h1 class="text-4xl font-bold text-gray-800">
+     Perfume Check
+    </h1>
+    <p class="text-gray-600">
+     Verify the authenticity of your perfume by scanning the barcode
+    </p>
+   </header>
+   <main>
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+     <h2 class="text-2xl font-bold mb-4">
+      Scan Barcode
+     </h2>
+     <div class="flex justify-center mb-4">
+      <img alt="Placeholder for camera view to scan barcode" class="rounded-lg shadow-md" height="200" src="https://storage.googleapis.com/a1aa/image/zP3yjMLfAiXGodT9-bDwYF_Ipu3jBqxF98YRJE0URR8.jpg" width="300"/>
+     </div>
+     <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      <i class="fas fa-camera mr-2">
+      </i>
+      Scan Now
+     </button>
+     <div class="mt-4 text-center text-lg font-semibold text-gray-700" id="scan-result">
+     </div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+     <h2 class="text-2xl font-bold mb-4">
+      Admin Panel
+     </h2>
+     <form id="admin-form">
+      <div class="mb-4">
+       <label class="block text-gray-700 font-bold mb-2" for="barcode">
+        Barcode
+       </label>
+       <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="barcode" name="barcode" placeholder="Enter barcode" type="text"/>
+      </div>
+      <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" type="submit">
+       <i class="fas fa-plus mr-2">
+       </i>
+       Add Barcode
+      </button>
+     </form>
+    </div>
+   </main>
+  </div>
+  <script>
+   document.querySelector('button').addEventListener('click', function() {
+            // Simulate scanning result
+            const result = Math.random() > 0.5 ? "The perfume is original" : "The bar code is not registered. This perfume is probably fake.";
+            document.getElementById('scan-result').innerText = result;
+        });
+
+        document.getElementById('admin-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const barcode = document.getElementById('barcode').value;
+            alert(`Barcode ${barcode} added successfully!`);
+            document.getElementById('barcode').value = '';
+        });
+  </script>
+ </body>
+</html>
